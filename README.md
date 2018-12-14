@@ -7,7 +7,7 @@ __＜使う方法＞__
 1.  MATLABを立ち上げ，カレントディレクトリを`kn_draw_drone`に移動する  
 2.  `main.m`を実行する
 
-![イメージ図](~/blob/media/draw_drone.gif)
+![イメージ図](https://github.com/kn4ts/drone_sim/blob/ac_manuscript/draw_drone.gif)
 
 __＜内容物＞__  
 +  `README.md` ...説明書
