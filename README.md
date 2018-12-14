@@ -4,7 +4,7 @@
 使用言語は`MATLAB2013b`です．
 
 __＜使う方法＞__  
-1.  MATLABを立ち上げ，カレントディレクトリを`kn_draw_drone`に移動する  
+1.  MATLABを立ち上げ，`drone_sim`ディレクトリに移動する．  
 2.  `main.m`を実行する
 
 ![イメージ図](https://github.com/kn4ts/drone_sim/blob/ac_manuscript/draw_drone.gif)
