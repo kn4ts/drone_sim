@@ -163,11 +163,14 @@ figure(2)
 
 subplot(2,2,1)
 plot(X_h(1:3,:)')
+legend('x','y','z','Location','best')
 title('Position X, Y, Z [m]')
+xlabeltext = strcat('step ( 1 step = ', num2str(T_sam,'%2.2f'),' [sec] )');
+xlabel(xlabeltext)
 subplot(2,2,3)
 plot(X_h(4:6,:)')
+legend('\theta','\phi','\psi','Location','best')
 title('Attitude angle \theta, \phi, \psi [rad]')
-xlabeltext = strcat('step ( 1 step = ', num2str(T_sam,'%2.2f'),' [sec] )');
 xlabel(xlabeltext)
 
 subplot(4,2,2)
