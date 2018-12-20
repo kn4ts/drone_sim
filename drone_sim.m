@@ -9,9 +9,10 @@ function X_d = drone_sim(X,T)
     coef.prop = 4.34*10^-5 ;    %% 推力係数
     coef.drag = 0.2188*10^-5 ;  %% 抗力係数
 
-    omega_exp2 = T/coef.prop ;  %% プロペラ角速度の2乗をまとめたベクトル
-    omega = omega_exp2.^(0.5);  %% プロペラ角速度をまとめたベクトル
-    Omega = omega(1)-omega(2)+omega(3)-omega(4) ;
+    omega_exp2 = diag(sign(T'))*T/coef.prop ;  %% プロペラ角速度の2乗をまとめたベクトル
+    omega = diag(sign(T'))*omega_exp2.^(0.5);  %% プロペラ角速度をまとめたベクトル
+    Omega = sum(omega) ;  %% プロペラ角速度の和
+    % Omega = omega(1)-omega(2)+omega(3)-omega(4) ;  %% プロペラ角速度の和
     tau = (coef.prop/coef.drag)*T ; %% プロペラ反作用トルクをまとめたベクトル
 
     A_xu = [ X(7:12) ;
