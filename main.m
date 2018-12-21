@@ -13,7 +13,9 @@ close all
 %% phi   : y_G軸（グローバル座標系）に対する機体座標系の角度
 %% psi   : z_G軸（グローバル座標系）に対する機体座標系の角度
 %%
-X_0 = [ 0; -1; 0; 0.05 ; 0.1 ; 1 ; zeros(6,1) ];
+X_0 = [ 1; -2; 0; 0.05 ; 0 ; 1 ; zeros(6,1) ];
+% X_0 = [ zeros(12,1) ];
+% X_0 = [ 0; -1; 0; 0.05 ; 0.1 ; 1 ; zeros(6,1) ];
 
 %%
 %% シミュレーション条件の設定
@@ -25,39 +27,39 @@ T_sam = 0.01;   %% サンプリング時間 [sec]
 tt = 0:T_sam:T_end-T_sam ;
 N_all = length(tt) ;
 
-r = 6;  %% 目標高度[m]
+r = 5;  %% 目標高度[m]
         %% 目標位置はx=0,y=0としている
 
 %%
 %% PID Gains
 %%
 %% for attitude control
-Kp.the = 1 ;
+Kp.the = 2 ;
 Kp.phi = Kp.the ;
-Kp.psi = 2 ;
+Kp.psi = 0.02 ;
 
-Ki.the = 0.5 ;
+Ki.the = 0.1 ;
 Ki.phi = Ki.the ;
-Ki.psi = 1 ;
+Ki.psi = 0.001 ;
 
-Kd.the = 0.1 ;
+Kd.the = 1 ;
 Kd.phi = Kd.the ;
-Kd.psi = 3 ;
+Kd.psi = 0.003 ;
 
 %%
 %% for position control
-Kp.x = 0.2 ;
-Kp.y = 0.2 ;
-Kp.z = 1 ;
+Kp.x = 0.5 ;
+Kp.y = Kp.x ;
+Kp.z = 2 ;
 % Kp.z = 1 ;
 
-Ki.x = 0.1 ;
-Ki.y = 0.1 ;
-Ki.z = 0.5 ;
+Ki.x = 0.3 ;
+Ki.y = Ki.x ;
+Ki.z = 0.2 ;
 
-Kd.x = 0.05 ;
-Kd.y = 0.05 ;
-Kd.z = 0.7 ;
+Kd.x = 1 ;
+Kd.y = Kd.x ;
+Kd.z = 3 ;
 
 %% 信号の初期化
 %% SIGNALS
